@@ -1,0 +1,32 @@
+{% extends "proyectowebapp/base.html" %}
+{% load static %} <!-- importar los contenidos -->
+
+{% block content %} <!-- contenido cambiante en las distintas paginas -->
+<title>Solmáforos Córdoba</title>
+
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="intro">
+      <div class="intro-left order-2">
+        <img class="intro-img img-fluid rounded img-orden-2" 
+             src="{% static 'proyectowebapp/img/00_Solmaforos_5.png' %}" alt="">
+        <img class="intro-img img-fluid rounded img-orden-2" 
+             src="{% static 'proyectowebapp/img/00_Solmaforos_6.png' %}" alt="">
+      </div>
+    
+      <div class="intro-right">
+        <img class="intro-img img-fluid rounded img-orden-1" 
+             src="{% static 'proyectowebapp/img/00_Solmaforos_1.png' %}" alt="">
+        <img class="intro-img img-fluid rounded img-orden-2" 
+             src="{% static 'proyectowebapp/img/00_Solmaforos_2.png' %}" alt="">
+        <img class="intro-img img-fluid rounded img-orden-2" 
+             src="{% static 'proyectowebapp/img/00_Solmaforos_3.png' %}" alt="">
+        <img class="intro-img img-fluid rounded img-orden-2" 
+             src="{% static 'proyectowebapp/img/00_Solmaforos_4.png' %}" alt="">
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+{% endblock %} <!-- fin del contenido cambiante en las distintas paginas -->

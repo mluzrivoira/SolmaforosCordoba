@@ -1,0 +1,43 @@
+{% extends "proyectowebapp/base.html" %}
+{% load static %} <!-- importar los contenidos -->
+
+{% block content %} <!-- contenido cambiante en las distintas paginas -->
+<title>Importancia del Índice UV</title>
+
+<section class="page-section clearfix">
+  <div class="container">
+
+    <div class="image-container">
+      <img class="intro-img img-fluid rounded espacio-grande" 
+           src="{% static 'proyectowebapp/img/02_Importancia_1.png' %}" alt="Imagen 1">
+    
+      <img class="intro-img img-fluid rounded espacio-pequeño" 
+           src="{% static 'proyectowebapp/img/02_Importancia_2.png' %}" alt="Imagen 2">
+    
+      <img class="intro-img img-fluid rounded espacio-grande" 
+           src="{% static 'proyectowebapp/img/02_Importancia_3.png' %}" alt="Imagen 3">
+    
+      <img class="intro-img img-fluid rounded espacio-pequeño" 
+           src="{% static 'proyectowebapp/img/02_Importancia_4.png' %}" alt="Imagen 4">
+    
+      <img class="intro-img img-fluid rounded" 
+           src="{% static 'proyectowebapp/img/02_Importancia_5.png' %}" alt="Imagen 5">
+    </div>
+    
+
+    <div class="fuente-oms">
+      <p>
+        Toda esta información fue extraída de:
+        <a href="https://apps.who.int/iris/bitstream/handle/10665/42633/9243590073.pdf" target="_blank">
+          "Índice UV Solar Mundial: guía práctica"
+        </a>
+        publicada por la Organización Mundial de la Salud (OMS).
+      </p>
+    </div>
+  </div>
+</section>
+
+  
+
+
+{% endblock %} <!-- fin del contenido cambiante en las distintas paginas -->

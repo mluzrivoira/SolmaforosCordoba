@@ -1,0 +1,330 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom,
+    #ffffff 0%,             /* Blanco arriba */
+    rgb(254, 253, 182) 60%, /* Amarillo intermedio */
+    rgb(255, 178, 89) 100% /* Naranja abajo */
+  );
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Segoe UI', sans-serif;  /* letra que usan */
+}
+p {
+  line-height: 1.75; /* separacion entre parrafos para mejor lectura*/
+}
+
+
+.text-faded {
+  color: rgba(255, 255, 255, 0.219); /* color de la letra de pi solmaforos de la barra de abajo */
+}
+.page-section {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+.page-sectionmapa {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.map-wrapper {
+  width: 100%;
+  max-width: 800px; /* Ajustá este valor al que tenga tu mapa */
+  margin: 0 auto;
+}
+
+.img-indiceuv {
+  width: 100%;
+  height: auto;
+  max-height: none; /* Asegura que no se recorte si tenía un límite */
+}
+
+@media (max-width: 768px) {
+  .page-sectionmapa {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .page-section {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .grafico-container {
+    padding: 10px;
+  }
+
+  .fuente-oms {
+    padding: 1rem;
+  }
+
+  .boton-descargar {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
+
+
+#mainNav {
+  background-color: rgb(172, 53, 15); /* BARRA color de la barra */
+  font-family: 'Segoe UI', sans-serif;
+}
+#mainNav .navbar-brand {
+  color: #ffffff; /* BARRA */
+}
+#mainNav .navbar-nav .nav-item .nav-link {
+  color: rgb(255, 255, 255);  /* BARRA */
+  font-weight: 700; /* que tan negrita */
+}
+#mainNav .navbar-nav .nav-item.active .nav-link {
+  color: #ffffff; /* de que color el inicio */
+  text-decoration: underline; 
+}                 
+
+@media (min-width: 992px) {
+  #mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 1.5rem;       /* Aumenta el tamaño de los textos del menú */
+    padding: 0 1.5rem;       /* Agrega separación horizontal entre botones */
+  }
+
+  #mainNav .navbar-nav {
+    gap: 1rem;               /* Espacio entre elementos si usa flex (opcional) */
+  }
+
+  #mainNav .navbar-nav .nav-item .nav-link:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: underline;
+  }
+
+  #mainNav .navbar-nav .nav-item.active .nav-link:hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
+}
+
+
+@media (max-width: 768px) {
+  #mainNav .navbar-nav {
+    flex-wrap: wrap;
+    gap: 4.5px; 
+  }
+
+  #mainNav .nav-item {
+    margin-bottom: 5px;
+  }
+}
+
+
+.intro {
+  position: relative;
+}
+
+.logo-espaciado {
+  max-height: 180px;
+  max-width: 90%;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+
+.espacio-grande {
+  margin-bottom: 4rem !important;
+}
+
+.espacio-pequeño {
+  margin-bottom: 1rem !important;
+}
+
+/* para importancia */
+@media (min-width: 992px) {
+
+  .image-container img {
+    display: block;  /* Esto hace que cada imagen se apile una debajo de la otra */
+    width: 100%;     /* Asegura que las imágenes ocupen el ancho completo del contenedor */
+    margin-bottom: 2rem; /* Espacio entre las imágenes */
+  }
+}
+@media (max-width: 768px) {
+  .image-container img {
+    width: 120%;      /* Hace que se vean más grandes en celular */
+    max-width: none;  /* Permite que superen el ancho del contenedor */
+    margin-left: -10%; /* Centra visualmente la imagen al agrandarla */
+  }
+}
+
+.footer {
+   background-color: rgb(172, 53, 15); /* color de la parte bieeeen de abajo */
+}
+
+
+
+.mbt{
+  padding-top: 2rem;
+}
+
+.mbt1{
+  padding-top: 1.25rem;
+}
+
+
+a.link{
+  color: rgb(255, 255, 255); /* color de la letra de los links */
+}
+
+a.link:hover{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.section-content{
+  font-family: 'Segoe UI' !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 28px !important;
+}
+
+/* Estilos para el gráfico y boton (gráficos.html) */
+.grafico-container {
+  width: 95%;
+  max-width: 1120px;
+  margin: 40px auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.grafico-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+canvas {
+  display: block;
+  margin: 0 auto;
+  width: 100% !important;
+}
+
+.boton-descargar {
+  background-color: rgb(172, 53, 15);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 20px auto;
+  display: block;
+  width: auto;
+  max-width: 260px;
+  text-align: center;
+}
+
+.boton-descargar:hover {
+  background-color: rgb(172, 53, 15);
+}
+
+/* Estilo para importancia el link OMS*/
+.fuente-oms {
+  margin: 3rem auto;
+  max-width: 1080px;
+  padding: 1.5rem 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  font-family: 'Segoe UI';
+  text-align: center;
+
+  /* Sombra solo hacia abajo y derecha */
+  box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.671);
+}
+
+
+.fuente-oms p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #333;
+  margin: 0;
+}
+
+.fuente-oms a {
+  color: rgb(172, 53, 15);
+  font-weight: 500;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+/* home */
+/* Celular */
+@media (max-width: 768px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .intro-left,
+  .intro-right {
+    width: 100% !important;
+    display: contents; /* permite reordenar imágenes individuales */
+  }
+
+  .img-orden-1 {
+    order: 1;
+  }
+
+  .img-orden-2 {
+    order: 2;
+  }
+
+  .img-orden-3 {
+    order: 3;
+  }
+
+  .intro-img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+
+/* Escritorio */
+@media (min-width: 992px) {
+  .intro {
+    display: flex;
+    gap: 3rem; /* Espacio entre columnas */
+  }
+
+  .intro-left {
+    width: 60%;
+  }
+
+  .intro-right {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .intro-img {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+
+/* mapa */
+.map-wrapper {
+  width: 100%;
+  max-width: 800px;
+}
+

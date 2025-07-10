@@ -1,0 +1,99 @@
+<html> <!-- PLANTILLA PADRE (se ve lo de arriba y lo de abajo) -->
+
+<head>
+
+    {% load static %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap -->
+    <link href="{% static 'proyectowebapp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+
+    <!-- Styles -->
+    <link href="{% static 'proyectowebapp/css/solmaforo.css' %}" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+</head>
+
+<body>
+
+  <div class="text-center">
+    <img src="{% static 'proyectowebapp/img/Logo.png' %}" 
+         alt="Solmaforo Logo" 
+         class="img-fluid logo-espaciado">
+  </div>
+
+
+ <!-- Navegacion barra -->
+ <nav class="navbar navbar-expand navbar-dark py-lg-4" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home'%}"></a>
+
+
+    <div class="navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav d-flex flex-row justify-content-center w-100">
+        <li class="nav-item {% if request.path == '/' %}active{% endif %} px-2">
+          <a class="nav-link text-uppercase text-expanded" href="{% url 'home'%}">Solmáforo</a>
+        </li>
+        <li class="nav-item {% if request.path == '/indiceuv' %}active{% endif %} px-2">
+          <a class="nav-link text-uppercase text-expanded" href="{% url 'indiceuv'%}">Índice UV</a>
+        </li>
+        <li class="nav-item {% if request.path == '/importancia' %}active{% endif %} px-2">
+          <a class="nav-link text-uppercase text-expanded" href="{% url 'importancia'%}">Importancia</a>
+        </li>
+        <li class="nav-item {% if request.path == '/graficos' %}active{% endif %} px-2">
+          <a class="nav-link text-uppercase text-expanded" href="{% url 'graficos'%}">Gráficos</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!-- contenido cambiante en las distintas paginas -->
+  {% block content %}
+
+  {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer text-faded text-center py-5">
+      <div class="container">
+        <p class="m-0">
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+	        <a href="#" class="link">
+	          <span class="fa-stack fa-lg">
+	            <i class="fa fa-circle fa-stack-2x"></i>
+	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+	          </span>
+	        </a>
+          <p class="m-0 mbt">
+            <a href="https://www.unc.edu.ar" class="link" target="_blank">UNC</a> ·
+            <a href="https://www.fcefyn.unc.edu.ar" class="link" target="_blank">Facultad de Ciencias Exactas, Físicas y Naturales</a> ·
+            <a href="https://fcefyn.unc.edu.ar/facultad/secretarias/academica/departamentos/bioingenieria/proyecto-integrador-2/" class="link" target="_blank">PI</a>
+          </p>
+        <p class="m-0 mbt1">&copy; PI SOLMAFOROS</p>
+      </div>
+	</footer>
+
+    <!-- Bootstrap -->
+    <script src="{% static 'proyectowebapp/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'proyectowebapp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+
+</html>

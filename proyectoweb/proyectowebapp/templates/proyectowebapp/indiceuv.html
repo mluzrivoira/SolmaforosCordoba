@@ -1,0 +1,25 @@
+{% extends "proyectowebapp/base.html" %}
+{% load static %} <!-- importar los contenidos -->
+
+{% block content %} <!-- contenido cambiante en las distintas paginas -->
+
+<title>Mapa</title>
+
+<section class="page-sectionmapa">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="map-wrapper">
+        {{ mapa|safe }}
+
+        <div class="text-center mt-4">
+          <img src="{% static 'proyectowebapp/img/01_IndiceUV.png' %}" 
+               alt="referencia" 
+               class="img-fluid img-indiceuv">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %} <!-- fin del contenido cambiante en las distintas paginas -->

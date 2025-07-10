@@ -1,0 +1,140 @@
+{% extends "proyectowebapp/base.html" %}
+{% load static %} <!-- importar los contenidos -->
+
+{% block content %} <!-- contenido cambiante en las distintas paginas -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráficos por ubicación</title>
+    <link rel="stylesheet" href="{% static 'css/solmaforo.css' %}">
+</head>
+
+<body>
+<div id="graficosPorUbicacion"></div>
+
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<!-- Datos desde Django -->
+<script>
+    const datos = {{ datos_json|safe }};
+</script>
+
+
+<script>
+    const datosPorUbicacionId = {};
+
+
+    // Agrupar por ubicacion_id
+    datos.forEach(dato => {
+        if (!datosPorUbicacionId[dato.ubicacion_id]) {
+            datosPorUbicacionId[dato.ubicacion_id] = {
+                nombre: dato.ubicacion,
+                datos: []
+            };
+        }
+        datosPorUbicacionId[dato.ubicacion_id].datos.push(dato);
+    });
+
+
+    // Colores OMS
+    const coloresOMS = {
+        "Verde": "#00FF00",
+        "Amarillo": "#FFFF00",
+        "Naranja": "#FFA500",
+        "Rojo": "#FF0000",
+        "Violeta": "#8B00FF"
+    };
+
+
+    const contenedor = document.getElementById('graficosPorUbicacion');
+
+
+    Object.entries(datosPorUbicacionId)
+        .sort(([idA], [idB]) => parseInt(idA) - parseInt(idB))  // Orden por ID
+        .forEach(([id, { nombre, datos }]) => {
+            const div = document.createElement('div');
+            div.className = 'grafico-container';
+
+
+            const titulo = document.createElement('h2');
+            titulo.innerText = `${nombre}`;
+            div.appendChild(titulo);
+
+
+            const canvas = document.createElement('canvas');
+            canvas.id = `grafico_${id}`;
+            canvas.height = 250;
+            div.appendChild(canvas);
+            contenedor.appendChild(div);
+
+
+            // Ordenar por fecha
+            const datosOrdenados = datos.sort((a, b) => new Date(a.fecha_hora) - new Date(b.fecha_hora));
+
+
+            const horas = datosOrdenados.map(d => new Date(d.fecha_hora).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
+            const valoresUV = datosOrdenados.map(d => d.uv);
+            const colores = datosOrdenados.map(d => coloresOMS[d.color_uv] || "#ccc");
+
+
+            new Chart(canvas, {
+                type: 'bar',
+                data: {
+                    labels: horas,
+                    datasets: [{
+                        label: 'Índice UV',
+                        data: valoresUV,
+                        backgroundColor: colores,
+                        borderRadius: 5,
+                        barThickness: window.innerWidth < 768 ? 16 : 48,
+                        categoryPercentage: window.innerWidth < 768 ? 0.6 : 0.8,
+                        maxBarThickness: 50
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: ctx => `UV: ${ctx.raw}`
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Índice UV'
+                            },
+                            beginAtZero: true,
+                            ticks: { stepSize: 1 },
+                            grid: { display: false }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Hora'
+                            },
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        });
+</script>
+<!-- Botón para descargar el archivo Excel -->
+<a href="{% url 'descargar_excel' %}">
+    <button class="boton-descargar">Descargar Mediciones en Excel</button>
+</a>
+</body>
+</html>
+
+
+{% endblock %} <!-- fin del contenido cambiante en las distintas paginas -->
