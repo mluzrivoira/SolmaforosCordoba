@@ -11,7 +11,7 @@ BROKER = "test.mosquitto.org"
 PUERTO = 1883
 TOPICO = "marialuzrivoira_PI"
 
-# Zona horaria de Argentina
+# Zona Horaria de Argentina
 argentina_tz = pytz.timezone("America/Argentina/Buenos_Aires")
 
 ubicaciones = [
