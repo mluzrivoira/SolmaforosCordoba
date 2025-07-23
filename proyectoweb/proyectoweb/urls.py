@@ -20,5 +20,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    path('', include('proyectowebapp.urls')), #url de la aplicacion que tengo, asi puedo tener varias
+    path('', include('proyectowebapp.urls')), #url de la aplicacion
 ]

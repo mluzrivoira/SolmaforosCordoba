@@ -5,10 +5,10 @@ import sys
 
 
 def main():
-    """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proyectoweb.settings')
+    """Run administrative tasks."""      
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proyectoweb.settings') #apunta a los ajustes del proyecto   
     try:
-        from django.core.management import execute_from_command_line
+        from django.core.management import execute_from_command_line  #interpreta los argumentos de la línea de comandos y ejecuta la acción correspondiente.
     except ImportError as exc:
         raise ImportError(
             "Couldn't import Django. Are you sure it's installed and "

@@ -17,7 +17,6 @@ class Location(models.Model):
     def __str__(self):
         return self.localidad
     
-#aGREGUE ESTO
 class Medicion(models.Model):
     ubicacion_id = models.IntegerField(default=0) 
     ubicacion = models.CharField(max_length=100, default="Desconocida")

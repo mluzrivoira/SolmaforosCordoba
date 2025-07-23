@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from django.conf import settings
-import paho.mqtt.client as mqtt #agregue esto
+import paho.mqtt.client as mqtt 
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -41,14 +41,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'proyectowebapp', #agrego la app que cree
-    'import_export',
+    'proyectowebapp', #aplicación creada
+    'import_export', 
 ]
 
-# Configuración MQTT  AGREGUE ESTO
-MQTT_SERVER = 'test.mosquitto.org'  # Puedes usar 'localhost' si es local
+# Configuración MQTT
+MQTT_SERVER = 'test.mosquitto.org'
 MQTT_PORT = 1883
-MQTT_TOPIC = 'marialuzrivoira_PI'
+MQTT_TOPIC = 'SolmaforosCordoba'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -135,4 +135,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-

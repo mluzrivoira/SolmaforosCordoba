@@ -10,7 +10,7 @@ import threading
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
         print("Conectado correctamente al broker MQTT")
-        client.subscribe("marialuzrivoira_PI")
+        client.subscribe("SolmaforosCordoba")
     else:
         print(f"Error al conectar: Código {rc}")
 

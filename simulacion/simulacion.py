@@ -9,7 +9,7 @@ import pytz
 # Configuración del broker MQTT
 BROKER = "test.mosquitto.org"
 PUERTO = 1883
-TOPICO = "marialuzrivoira_PI"
+TOPICO = "SolmaforosCordoba"
 
 # Zona Horaria de Argentina
 argentina_tz = pytz.timezone("America/Argentina/Buenos_Aires")
@@ -31,9 +31,9 @@ def generar_temperaturas(horas, dias):
     for dia in range(dias):
         for hora in range(horas):
             if 10 <= hora < 19:
-                temperatura = round(np.random.uniform(25, 40),1)
+                temperatura = round(np.random.uniform(20, 35),1)
             else:
-                temperatura = round(np.random.uniform(18, 25),1)
+                temperatura = round(np.random.uniform(15, 20),1)
             temperaturas[hora, dia] = temperatura
     return temperaturas
 temperaturas = generar_temperaturas(24, 31)
@@ -85,7 +85,7 @@ def publicar_mqtt(mensaje_json):
     else:
         print("Error al publicar en MQTT")
 
-# Conectar antes de comenzar
+
 conectar_mqtt()
 
 # Publicar datos de todas las ubicaciones cada 30 minutos
@@ -94,7 +94,7 @@ while True:
     for ubicacion in ubicaciones:
         mensaje_json = generar_datos_simulados(ubicacion, hora_actual)
         publicar_mqtt(mensaje_json)
-        time.sleep(1)  # Pequeña pausa para evitar publicar todos de golpe (opcional)
+        time.sleep(1)  # Pausa
 
     print("Esperando 30 minutos para el próximo envío...\n")
     time.sleep(1800)  # Esperar 30 minutos

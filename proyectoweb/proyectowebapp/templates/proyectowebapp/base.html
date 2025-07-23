@@ -1,6 +1,8 @@
 <html> <!-- PLANTILLA PADRE (se ve lo de arriba y lo de abajo) -->
 
+
 <head>
+
 
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,10 +10,10 @@
     <link href="{% static 'proyectowebapp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
 
      <!-- Fonts -->
-    
-     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+   
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
      <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
-     
+  
 
     <!-- Styles -->
     <link href="{% static 'proyectowebapp/css/solmaforo.css' %}" rel="stylesheet">
@@ -19,19 +21,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
 </head>
 
+
 <body>
 
   <div class="text-center">
-    <img src="{% static 'proyectowebapp/img/Logo.png' %}" 
-         alt="Solmaforo Logo" 
+    <img src="{% static 'proyectowebapp/img/Logo.png' %}"
+         alt="Solmaforo Logo"
          class="img-fluid logo-espaciado">
   </div>
-
 
  <!-- Navegacion barra -->
  <nav class="navbar navbar-expand navbar-dark py-lg-4" id="mainNav">
   <div class="container">
     <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{% url 'home'%}"></a>
+
+
 
 
     <div class="navbar-collapse" id="navbarResponsive">
@@ -53,33 +57,17 @@
   </div>
 </nav>
 
+
   <!-- contenido cambiante en las distintas paginas -->
   {% block content %}
 
+
   {% endblock %}
 
-    <!-- Footer -->
-    <footer class="footer text-faded text-center py-5">
+    <!-- Footer (seccion final de la pagina) -->
+    <footer class="footer text-faded text-center py-5"> <!--color de texto, centrado -->
       <div class="container">
-        <p class="m-0">
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
-	        <a href="#" class="link">
-	          <span class="fa-stack fa-lg">
-	            <i class="fa fa-circle fa-stack-2x"></i>
-	            <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
-	          </span>
-	        </a>
+        <p class="m-0"> <!-- un parrafo sin margen -->
           <p class="m-0 mbt">
             <a href="https://www.unc.edu.ar" class="link" target="_blank">UNC</a> ·
             <a href="https://www.fcefyn.unc.edu.ar" class="link" target="_blank">Facultad de Ciencias Exactas, Físicas y Naturales</a> ·
@@ -87,13 +75,14 @@
           </p>
         <p class="m-0 mbt1">&copy; PI SOLMAFOROS</p>
       </div>
-	</footer>
+  </footer>
+
 
     <!-- Bootstrap -->
     <script src="{% static 'proyectowebapp/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'proyectowebapp/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
+
 </body>
-
-
 </html>
+
