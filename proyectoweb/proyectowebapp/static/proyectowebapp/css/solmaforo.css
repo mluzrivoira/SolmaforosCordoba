@@ -275,7 +275,15 @@ canvas {
   .intro-left,
   .intro-right {
     width: 100% !important;
-    display: contents; /* permite reordenar imágenes individuales */
+  }
+
+  .intro-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .img-wrapper {
+    order: 2;
   }
 
   .img-orden-1 {
@@ -294,11 +302,8 @@ canvas {
     width: 100%;
     margin-bottom: 1rem;
   }
-  .enlace-img {
-  display: contents;
 }
 
-}
 
 
 
