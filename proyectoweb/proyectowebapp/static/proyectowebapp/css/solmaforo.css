@@ -294,7 +294,12 @@ canvas {
     width: 100%;
     margin-bottom: 1rem;
   }
+  .enlace-img {
+  display: contents;
 }
+
+}
+
 
 
 /* Escritorio */
