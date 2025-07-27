@@ -1,9 +1,9 @@
 from django.urls import path
-from proyectowebapp.views import home, indiceuv, graficos, importancia
 from . import views
+from proyectowebapp.views import home, indiceuv, graficos, importancia
 
 urlpatterns = [
-    path('', home, name="home"), #no tiene url pq es el inicio
+    path('', home, name="home"),
     path('indiceuv', indiceuv, name="indiceuv"),
     path('importancia', importancia, name="importancia"),
     path('graficos', graficos, name="graficos"),

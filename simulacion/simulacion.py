@@ -43,7 +43,7 @@ def generar_uvs(horas, dias):
     for dia in range(dias):
         for hora in range(horas):
             if 10 <= hora < 19:
-                uv = round(np.random.uniform(5, 11),0)
+                uv = round(np.random.uniform(5, 15),0)
             else:
                 uv = round(np.random.uniform(0, 4),0)
             uvs[hora, dia] = uv
