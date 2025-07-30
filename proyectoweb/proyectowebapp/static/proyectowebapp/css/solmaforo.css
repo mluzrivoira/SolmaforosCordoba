@@ -275,8 +275,7 @@ canvas {
   .intro-left,
   .intro-right {
     width: 100% !important;
-    display: flex;
-    flex-direction: column;
+    display: contents; /* permite reordenar imágenes individuales */
   }
 
   .img-orden-1 {
@@ -290,17 +289,13 @@ canvas {
   .img-orden-3 {
     order: 3;
   }
-
-  .img-orden-4 {
-    order: 4;
-  }
-
+  
   .intro-img {
     width: 100%;
     margin-bottom: 1rem;
   }
-}
 
+}
 
 
 
