@@ -39,7 +39,7 @@
 
 
     <div class="navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav d-flex flex-row justify-content-center w-100">
+      <ul class="navbar-nav d-flex flex-row flex-nowrap justify-content-center" style="overflow-x:auto; white-space:nowrap;">
         <li class="nav-item {% if request.path == '/' %}active{% endif %} px-2">
           <a class="nav-link text-uppercase text-expanded" href="{% url 'home'%}">Solmáforo</a>
         </li>
@@ -51,6 +51,9 @@
         </li>
         <li class="nav-item {% if request.path == '/graficos' %}active{% endif %} px-2">
           <a class="nav-link text-uppercase text-expanded" href="{% url 'graficos'%}">Gráficos</a>
+        </li>
+        <li class="nav-item {% if request.path == '/sobre-nosotros/' %}active{% endif %} px-2">
+           <a class="nav-link text-uppercase text-expanded" href="{% url 'sobre_nosotros'%}">Sobre nosotros</a>
         </li>
       </ul>
     </div>
@@ -73,7 +76,7 @@
             <a href="https://www.fcefyn.unc.edu.ar" class="link" target="_blank">Facultad de Ciencias Exactas, Físicas y Naturales</a> ·
             <a href="https://fcefyn.unc.edu.ar/facultad/secretarias/academica/departamentos/bioingenieria/proyecto-integrador-2/" class="link" target="_blank">PI</a>
           </p>
-        <p class="m-0 mbt1">&copy; PI SOLMAFOROS</p>
+        <p class="m-0 mbt1">&copy; PI SOLMÁFOROS</p>
       </div>
   </footer>
 

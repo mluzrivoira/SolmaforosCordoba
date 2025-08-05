@@ -1,0 +1,27 @@
+{% extends "proyectowebapp/base.html" %}
+{% load static %} <!-- importar los contenidos -->
+
+{% block content %} <!-- contenido cambiante en las distintas paginas -->
+<link rel="stylesheet" href="{% static 'css/solmaforo.css' %}">
+<section class="page-section clearfix">
+ <div class="fuente-oms">
+    <p>Esta página de <strong>Solmáforos Córdoba</strong> fue desarrollada en el marco académico de un Proyecto Integrador (tesina de grado) de la carrera de <strong>Ingeniería Biomédica</strong>, Facultad de Ciencias Exactas, Físicas y Naturales (FCEFyN), Universidad Nacional de Córdoba (UNC).
+    
+    <p>Nuestro objetivo es brindar una herramienta accesible y basada en datos para visualizar y comparar índices de radiación UV en distintas ubicaciones dentro de la provincia, promoviendo conciencia sobre la exposición solar.
+    
+
+ <p><strong>Equipo</strong></p>
+
+<div class="equipo-container">
+  <div class="foto-equipo">
+    <img src="{% static 'proyectowebapp/img/LucianaBussi.jpeg' %}" alt="Luciana Bussi">
+    <p class="texto-foto">Luciana Bussi</p>
+  </div>
+  <div class="foto-equipo">
+    <img src="{% static 'proyectowebapp/img/OtraPersona.jpeg' %}" alt="Nombre de otra persona">
+    <p class="texto-foto">Nombre Persona</p>
+  </div>
+</div>
+</section>
+
+{% endblock %}

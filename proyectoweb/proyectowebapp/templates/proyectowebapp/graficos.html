@@ -1,18 +1,53 @@
 {% extends "proyectowebapp/base.html" %}
-{% load static %} <!-- importar los contenidos -->
-
-{% block content %} <!-- contenido cambiante en las distintas paginas -->
+{% load static %}
 
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Gráficos por ubicación</title> <!-- ver -->
-    <link rel="stylesheet" href="{% static 'css/solmaforo.css' %}">
-</head>
+{% block content %}
 
-<body>
+
+<!-- Filtros centrados con buena alineación -->
+<div style="display:flex; flex-direction:column; align-items:center; margin-top: 1.5rem; margin-bottom: 2rem;">
+  <form method="get" style="display:flex; gap: 1.5rem; justify-content:center; align-items:center; flex-wrap: wrap;">
+
+
+    <!-- Contenedor para Desde -->
+    <div style="display:flex; flex-direction: column; align-items: center; font-weight: 600;">
+      <label for="desde" style="margin-bottom: 0.25rem;">Desde:</label>
+      <input type="date" id="desde" name="desde" value="{{ filtro_desde }}">
+    </div>
+
+
+    <!-- Contenedor para Hasta -->
+    <div style="display:flex; flex-direction: column; align-items: center; font-weight: 600;">
+      <label for="hasta" style="margin-bottom: 0.25rem;">Hasta:</label>
+      <input type="date" id="hasta" name="hasta" value="{{ filtro_hasta }}">
+    </div>
+
+
+    <!-- Botones -->
+    <div style="display:flex; gap: 1rem; align-items: center;">
+      <button type="submit" style="height: 38px;">Filtrar</button>
+      <a href="{% url 'graficos' %}" style="align-self: center;">Resetear</a>
+    </div>
+
+
+  </form>
+</div>
+
+
+
+
+<!-- Mostrar errores si hay -->
+{% if errores %}
+<div style="color: red; margin-bottom: 1rem; text-align:center;">
+  {% for e in errores %}
+    <div>{{ e }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+
+<!-- Contenedor de gráficos -->
 <div id="graficosPorUbicacion"></div>
 
 
@@ -20,29 +55,9 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<!-- Datos desde Django -->
+<!-- Datos enviados desde Django -->
 <script>
     const datos = {{ datos_json|safe }};
-</script>
-
-
-<script>
-    const datosPorUbicacionId = {};
-
-
-    // Agrupar por ubicacion_id
-    datos.forEach(dato => {
-        if (!datosPorUbicacionId[dato.ubicacion_id]) {
-            datosPorUbicacionId[dato.ubicacion_id] = {
-                nombre: dato.ubicacion,
-                datos: []
-            };
-        }
-        datosPorUbicacionId[dato.ubicacion_id].datos.push(dato);
-    });
-
-
-    // Colores OMS
     const coloresOMS = {
         "Verde": "#00FF00",
         "Amarillo": "#FFFF00",
@@ -55,86 +70,156 @@
     const contenedor = document.getElementById('graficosPorUbicacion');
 
 
-    Object.entries(datosPorUbicacionId)
-        .sort(([idA], [idB]) => parseInt(idA) - parseInt(idB))  // Orden por ID
-        .forEach(([id, { nombre, datos }]) => {
-            const div = document.createElement('div');
-            div.className = 'grafico-container';
+    function crearGraficos(datosAGraficar) {
+        contenedor.innerHTML = "";
 
 
-            const titulo = document.createElement('h2');
-            titulo.innerText = `${nombre}`;
-            div.appendChild(titulo);
+        if (!datosAGraficar.length) {
+            contenedor.innerHTML = '<p style="text-align:center; margin-top: 2rem; font-weight: 600;">No hay datos para mostrar en este rango de fechas.</p>';
+            return;
+        }
 
 
-            const canvas = document.createElement('canvas');
-            canvas.id = `grafico_${id}`;
-            canvas.height = 250;
-            div.appendChild(canvas);
-            contenedor.appendChild(div);
+        // Agrupar datos por ubicación
+        const datosPorUbicacionId = {};
+        datosAGraficar.forEach(d => {
+            if (!datosPorUbicacionId[d.ubicacion_id]) {
+                datosPorUbicacionId[d.ubicacion_id] = {
+                    nombre: d.ubicacion,
+                    datos: []
+                };
+            }
+            datosPorUbicacionId[d.ubicacion_id].datos.push(d);
+        });
 
 
-            // Ordenar por fecha
-            const datosOrdenados = datos.sort((a, b) => new Date(a.fecha_hora) - new Date(b.fecha_hora));
+        // Crear un gráfico para cada ubicación
+        Object.entries(datosPorUbicacionId)
+            .sort(([idA], [idB]) => parseInt(idA) - parseInt(idB))
+            .forEach(([id, { nombre, datos }]) => {
+                const div = document.createElement('div');
+                div.className = 'grafico-container';
+                div.style.marginBottom = '2rem';
 
 
-            const horas = datosOrdenados.map(d => new Date(d.fecha_hora).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
-            const valoresUV = datosOrdenados.map(d => d.uv);
-            const colores = datosOrdenados.map(d => coloresOMS[d.color_uv] || "#ccc");
+                // Encabezado
+                const encabezado = document.createElement('div');
+                encabezado.style.textAlign = 'center';
+                encabezado.style.marginBottom = '0.5rem';
 
 
-            new Chart(canvas, {
-                type: 'bar',
-                data: {
-                    labels: horas,
-                    datasets: [{
-                        label: 'Índice UV',
-                        data: valoresUV,
-                        backgroundColor: colores,
-                        borderRadius: 5,
-                        barThickness: window.innerWidth < 768 ? 16 : 48,
-                        categoryPercentage: window.innerWidth < 768 ? 0.6 : 0.8,
-                        maxBarThickness: 50
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            callbacks: {
-                                label: ctx => `UV: ${ctx.raw}`
+                const titulo = document.createElement('h2');
+                titulo.innerText = nombre;
+                titulo.style.marginBottom = '0.2rem';
+                encabezado.appendChild(titulo);
+
+
+                if (datos.length > 0) {
+                    const ultima = datos.slice().sort((a, b) => new Date(b.fecha_hora) - new Date(a.fecha_hora))[0];
+                    const dt = new Date(ultima.fecha_hora);
+                    const fechaStr = dt.toLocaleDateString('es-AR', { year: 'numeric', month: '2-digit', day: '2-digit' });
+                    const horaStr = dt.toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit' });
+                    const subtitulo = document.createElement('div');
+                    subtitulo.className = 'ultima-actualizacion';
+                    subtitulo.innerText = `Última actualización: ${fechaStr} ${horaStr}`;
+                    subtitulo.style.fontSize = '0.85rem';
+                    subtitulo.style.color = '#555';
+                    encabezado.appendChild(subtitulo);
+                }
+
+
+                div.appendChild(encabezado);
+
+
+                // Canvas para el gráfico
+                const canvas = document.createElement('canvas');
+                canvas.id = `grafico_${id}`;
+                canvas.height = 250;
+                div.appendChild(canvas);
+                contenedor.appendChild(div);
+
+
+                // Preparar datos para Chart.js
+                const datosOrdenados = datos.sort((a, b) => new Date(a.fecha_hora) - new Date(b.fecha_hora));
+                const horas = datosOrdenados.map(d => new Date(d.fecha_hora).toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' }));
+                const valoresUV = datosOrdenados.map(d => d.uv);
+                const colores = datosOrdenados.map(d => coloresOMS[d.color_uv] || "#ccc");
+
+
+                new Chart(canvas, {
+                    type: 'bar',
+                    data: {
+                        labels: horas,
+                        datasets: [{
+                            label: 'Índice UV',
+                            data: valoresUV,
+                            backgroundColor: colores,
+                            borderRadius: 5,
+                            barThickness: 40,
+                            categoryPercentage: 0.8,
+                            maxBarThickness: 50
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    // Título con fecha completa y hora
+                                    title: context => {
+                                        if (!context.length) return "";
+                                        const idx = context[0].dataIndex;
+                                        const d = datosOrdenados[idx];
+                                        const dt = new Date(d.fecha_hora);
+                                        return dt.toLocaleString('es-AR', {
+                                            year: 'numeric',
+                                            month: '2-digit',
+                                            day: '2-digit',
+                                            hour: '2-digit',
+                                            minute: '2-digit'
+                                        });
+                                    },
+                                    // Label con el UV
+                                    label: ctx => `UV: ${ctx.raw}`
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                title: {
+                                    display: true,
+                                    text: 'Índice UV'
+                                },
+                                beginAtZero: true,
+                                ticks: { stepSize: 1 },
+                                grid: { display: false }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'Hora'
+                                },
+                                grid: { display: false }
                             }
                         }
-                    },
-                    scales: {
-                        y: {
-                            title: {
-                                display: true,
-                                text: 'Índice UV'
-                            },
-                            beginAtZero: true,
-                            ticks: { stepSize: 1 },
-                            grid: { display: false }
-                        },
-                        x: {
-                            title: {
-                                display: true,
-                                text: 'Hora'
-                            },
-                            grid: { display: false }
-                        }
                     }
-                }
+                });
             });
-        });
+    }
+
+
+    // Crear gráficos con datos que envió Django
+    crearGraficos(datos);
 </script>
-<!-- Botón para descargar el archivo Excel -->
-<a href="{% url 'descargar_excel' %}">
-    <button class="boton-descargar">Descargar Mediciones en Excel</button>
-</a>
-</body>
-</html>
 
 
-{% endblock %} <!-- fin del contenido cambiante en las distintas paginas -->
+<!-- Botón para descargar Excel -->
+<div style="text-align:center; margin-top:1rem;">
+  <a href="{% url 'descargar_excel' %}">
+      <button class="boton-descargar">Descargar Mediciones en Excel</button>
+  </a>
+</div>
+
+
+{% endblock %}

@@ -8,4 +8,5 @@ urlpatterns = [
     path('importancia', importancia, name="importancia"),
     path('graficos', graficos, name="graficos"),
     path('descargar-excel/', views.exportar_excel, name='descargar_excel'),
+    path('sobre-nosotros/', views.sobre_nosotros, name="sobre_nosotros"),
 ]
