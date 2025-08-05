@@ -91,11 +91,11 @@ p {
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 1.5rem;       /* Aumenta el tamaño de los textos del menú */
-    padding: 0 1.5rem;       /* Agrega separación horizontal entre botones */
+    padding: 0 1.25rem;       /* Agrega separación horizontal entre botones */
   }
 
   #mainNav .navbar-nav {
-    gap: 1rem;               /* Espacio entre elementos si usa flex (opcional) */
+    gap: 0.95rem;               /* Espacio entre elementos si usa flex (opcional) */
   }
 
   #mainNav .navbar-nav .nav-item .nav-link:hover {
@@ -366,6 +366,12 @@ canvas {
   text-align: left;
   text-align: justify;
 }
+@media (max-width: 767px) {
+  .text-overlay-Solmaforo6 {
+    font-size: 0.75rem;
+    padding: 10px;
+  }
+}
 
 .text-overlay-Solmaforo3 {
   top: 42%;  /* que tan centrado esta de arriba */
@@ -408,7 +414,25 @@ canvas {
   padding-right: 13px;
 }
 
+@media (max-width: 767px) {
+  .tabla-iuv-overlay,
+  .text-overlay {
+    font-size: 0.75rem; /* Letra más chica en celular */
+    padding: 10px 15px; /* Menos margen en celular */
+  }
 
+  .tabla-iuv-overlay .fila,
+  .tabla-iuv-overlay .fila-header {
+    flex-direction: column; /* Las columnas una debajo de otra si querés más espacio */
+    align-items: center;
+    text-align: center;
+  }
+
+  .columna {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
 .fila,
 .fila-header {
   display: flex;
