@@ -10,9 +10,34 @@
         {{ mapa|safe }}
 
         <div class="text-center mt-4">
-          <img src="{% static 'proyectowebapp/img/01_IndiceUV.png' %}" 
-               alt="referencia" 
-               class="img-fluid img-indiceuv">
+          <div class="contenedor-overlay">
+<div class="contenedor-uv">
+  <img src="{% static 'proyectowebapp/img/01_IndiceUV.png' %}" alt="referencia" class="imagen-uv">
+
+  <div class="texto-superpuesto-uv">
+    <div class="fila-numeros">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+      <div>8</div>
+      <div>9</div>
+      <div>10</div>
+      <div>11+</div>
+    </div>
+    <div class="fila-categorias">
+      <div>BAJA</div>
+      <div>MODERADA</div>
+      <div>ALTA</div>
+      <div>MUY ALTA</div>
+      <div>EXTREMADAMENTE ALTA</div>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>

@@ -7,31 +7,43 @@
 
 <!-- Filtros centrados con buena alineación -->
 <div style="display:flex; flex-direction:column; align-items:center; margin-top: 1.5rem; margin-bottom: 2rem;">
-  <form method="get" style="display:flex; gap: 1.5rem; justify-content:center; align-items:center; flex-wrap: wrap;">
+  <form method="get" style="display:flex; gap: 1.5rem; justify-content:center; align-items:flex-end; flex-wrap: wrap;">
 
 
-    <!-- Contenedor para Desde -->
-    <div style="display:flex; flex-direction: column; align-items: center; font-weight: 600;">
-      <label for="desde" style="margin-bottom: 0.25rem;">Desde:</label>
-      <input type="date" id="desde" name="desde" value="{{ filtro_desde }}">
+  <!-- Contenedor para Desde -->
+  <div style="display:flex; flex-direction: column; align-items: center; font-weight: 600; text-align: center;">
+    <label for="desde" style="margin-bottom: 0.25rem;">Desde:</label>
+    <input type="date" id="desde" name="desde" value="{{ filtro_desde }}">
+  </div>
+
+
+  <!-- Contenedor para Hasta -->
+  <div style="display:flex; flex-direction: column;align-items: center; font-weight: 600;text-align: center;">
+    <label for="hasta" style="margin-bottom: 0.25rem;">Hasta:</label>
+    <input type="date" id="hasta" name="hasta" value="{{ filtro_hasta }}">
+  </div>
+
+
+  <!-- Botones -->
+    <div style="display:flex; gap: 1rem; align-items:flex-end;">
+        <button type="submit" style="height: 38px; padding: 0 1rem; border-radius: 8px; background-color: #ffffffff; color: black; border: none; cursor: pointer;">
+            Filtrar
+        </button>
+        <a href="{% url 'graficos' %}">
+            <button type="button" style="height: 38px; padding: 0 1rem; border-radius: 8px; background-color: #fafdffff; color: black; border: none; cursor: pointer;">
+                Resetear
+            </button>
+        </a>
     </div>
 
 
-    <!-- Contenedor para Hasta -->
-    <div style="display:flex; flex-direction: column; align-items: center; font-weight: 600;">
-      <label for="hasta" style="margin-bottom: 0.25rem;">Hasta:</label>
-      <input type="date" id="hasta" name="hasta" value="{{ filtro_hasta }}">
-    </div>
 
 
-    <!-- Botones -->
-    <div style="display:flex; gap: 1rem; align-items: center;">
-      <button type="submit" style="height: 38px;">Filtrar</button>
-      <a href="{% url 'graficos' %}" style="align-self: center;">Resetear</a>
-    </div>
 
 
-  </form>
+</form>
+
+
 </div>
 
 

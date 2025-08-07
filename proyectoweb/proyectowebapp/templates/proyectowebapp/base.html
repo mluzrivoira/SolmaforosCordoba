@@ -68,17 +68,22 @@
   {% endblock %}
 
     <!-- Footer (seccion final de la pagina) -->
-    <footer class="footer text-faded text-center py-5"> <!--color de texto, centrado -->
-      <div class="container">
-        <p class="m-0"> <!-- un parrafo sin margen -->
-          <p class="m-0 mbt">
-            <a href="https://www.unc.edu.ar" class="link" target="_blank">UNC</a> ·
-            <a href="https://www.fcefyn.unc.edu.ar" class="link" target="_blank">Facultad de Ciencias Exactas, Físicas y Naturales</a> ·
-            <a href="https://fcefyn.unc.edu.ar/facultad/secretarias/academica/departamentos/bioingenieria/proyecto-integrador-2/" class="link" target="_blank">PI</a>
-          </p>
-        <p class="m-0 mbt1">&copy; PI SOLMÁFOROS</p>
-      </div>
-  </footer>
+<footer class="footer text-center py-4">
+  <div class="container">
+    <div class="logos-footer d-flex justify-content-center align-items-center gap-4 flex-wrap">
+      <a href="https://www.unc.edu.ar" target="_blank">
+        <img src="{% static 'proyectowebapp/img/UNC.png' %}" alt="Logo UNC" class="logo-footer">
+      </a>
+      <a href="https://www.fcefyn.unc.edu.ar" target="_blank">
+        <img src="{% static 'proyectowebapp/img/FCEFyN.png' %}" alt="Logo FCEFyN" class="logo-footer">
+      </a>
+      <a href="https://fcefyn.unc.edu.ar/facultad/secretarias/academica/departamentos/bioingenieria/proyecto-integrador-2/" target="_blank">
+        <img src="{% static 'proyectowebapp/img/Ingeniería Biomédica.png' %}" alt="Logo PI" class="logo-footer">
+      </a>
+    </div>
+    <p class="m-0 mt-3 text-light small">&copy; PI SOLMÁFOROS</p>
+  </div>
+</footer>
 
 
     <!-- Bootstrap -->

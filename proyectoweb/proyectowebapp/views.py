@@ -130,19 +130,33 @@ def graficos(request):
         except ValueError:
             errores.append("Formato de fecha inválido. Usar YYYY-MM-DD.")
     else:
-        # Si no hay filtro, tomar solo las de "hoy" en hora de Argentina
-        ahora_local = datetime.now(tz=arg_tz)
-        inicio_local = ahora_local.replace(hour=0, minute=0, second=0, microsecond=0)
-        fin_local = ahora_local.replace(hour=23, minute=59, second=59, microsecond=999999)
+        # buscamos la última fecha con datos
+        ultima_medicion = Medicion.objects.order_by("-fecha_hora").first()
+        if ultima_medicion:
+            fecha_local_ultima = ultima_medicion.fecha_hora.astimezone(arg_tz).date()
 
 
-        inicio_utc = inicio_local.astimezone(pytz.UTC)
-        fin_utc = fin_local.astimezone(pytz.UTC)
+            inicio_local = datetime.combine(fecha_local_ultima, time.min)
+            fin_local = datetime.combine(fecha_local_ultima, time.max)
+            inicio_local = arg_tz.localize(inicio_local)
+            fin_local = arg_tz.localize(fin_local)
 
 
-        mediciones_qs = mediciones_qs.filter(
-            fecha_hora__range=(inicio_utc, fin_utc)
-        ).order_by("fecha_hora")
+            inicio_utc = inicio_local.astimezone(pytz.UTC)
+            fin_utc = fin_local.astimezone(pytz.UTC)
+
+
+            mediciones_qs = mediciones_qs.filter(
+                fecha_hora__range=(inicio_utc, fin_utc)
+            ).order_by("fecha_hora")
+
+
+            # También seteamos los strings para que aparezcan en los inputs del form
+            desde_str = fecha_local_ultima.isoformat()
+            hasta_str = fecha_local_ultima.isoformat()
+        else:
+            errores.append("No hay datos disponibles para mostrar.")
+            mediciones_qs = Medicion.objects.none()
 
 
     # Si hay errores, forzamos a que no haya datos para que no se dibujen gráficos
@@ -188,6 +202,7 @@ def graficos(request):
         "filtro_hasta": hasta_str or "",
     }
     return render(request, "proyectowebapp/graficos.html", context)
+
 
 def exportar_excel(request):
     mediciones = Medicion.objects.all().order_by('-fecha_hora')

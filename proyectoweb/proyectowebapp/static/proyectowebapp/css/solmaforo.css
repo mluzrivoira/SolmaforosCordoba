@@ -91,11 +91,11 @@ p {
 @media (min-width: 992px) {
   #mainNav .navbar-nav .nav-item .nav-link {
     font-size: 1.5rem;       /* Aumenta el tamaño de los textos del menú */
-    padding: 0 1.25rem;       /* Agrega separación horizontal entre botones */
+    padding: 0 1.5rem;       /* Agrega separación horizontal entre botones */
   }
 
   #mainNav .navbar-nav {
-    gap: 0.95rem;               /* Espacio entre elementos si usa flex (opcional) */
+    gap: 1rem;               /* Espacio entre elementos si usa flex (opcional) */
   }
 
   #mainNav .navbar-nav .nav-item .nav-link:hover {
@@ -160,7 +160,7 @@ p {
 }
 
 .footer {
-   background-color: rgb(172, 53, 15); /* color de la parte bieeeen de abajo */
+   background-color: rgb(172, 53, 15); /* color de la parte bieeeen de abajo rgb(172, 53, 15) */
 }
 
 
@@ -171,11 +171,6 @@ p {
 
 .mbt1{
   padding-top: 1.25rem;
-}
-
-
-a.link{
-  color: rgb(255, 255, 255); /* color de la letra de los links */
 }
 
 a.link:hover{
@@ -305,31 +300,6 @@ canvas {
   }
 }
 
-.equipo-container {
-  display: flex;
-  justify-content: center;
-  gap: 30px; /* espacio entre imágenes */
-  flex-wrap: wrap; /* para que en pantallas chicas pasen a nueva línea */
-  margin-top: 10px;
-}
-
-.foto-equipo {
-  text-align: center;
-  width: 150px;
-}
-
-.foto-equipo img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.texto-foto {
-  font-size: 14px;
-  margin-top: 5px;
-}
-
-
 
 /* PARA HOME */
 .img-container {
@@ -366,12 +336,21 @@ canvas {
   text-align: left;
   text-align: justify;
 }
-@media (max-width: 767px) {
+
+@media (max-width: 768px) {
   .text-overlay-Solmaforo6 {
-    font-size: 0.75rem;
+    font-size: 1.35rem; /* reducimos el tamaño para que quepa en la pantalla */
+    line-height: 1.2; /* ajustamos el interlineado */
+    font-weight: 500;
+    width: 90%; /* que no ocupe todo el ancho para que quede aire a los lados */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 8%;  /* que tan centrado esta de arriba */
+    bottom: 10px; /* lo bajamos un poco si lo necesitás */
     padding: 10px;
   }
 }
+
 
 .text-overlay-Solmaforo3 {
   top: 42%;  /* que tan centrado esta de arriba */
@@ -388,69 +367,42 @@ canvas {
   font-weight: 500;  /* medio */
 }
 
+/* tabla uv home */
 .img-container img {
   display: block;
   width: 100%;
-  height: auto;
 }
 
 .contenedor-overlay {
   position: relative;
-  display: inline-block;
+  width: 100%;
 }
 
 .tabla-iuv-overlay {
   position: absolute;
-  top: 8%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 0.95rem; /* Más chico */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 30px 40px 30px; /* top, right, bottom, left */
+  font-size: 0.9rem;
   color: white;
-  width: 90%; /* Más ancho pero dentro de la imagen */
-  max-width: 100%;
+  font-weight: 500;
+
+  /* GRID REAL */
+  display: grid;
+  grid-template-columns: 50% 50%; /* dos columnas iguales */
+  grid-template-rows:
+    30%       /* primera fila (encabezado) */
+    repeat(5, 14%); /* cinco filas de 16% */
+  align-items: center;
   text-align: center;
-  font-weight: 500;  /* medio */
-  padding-left: 13px;
-  padding-right: 13px;
+  row-gap: 2.3px; /* opcional: separación entre filas */
 }
 
-@media (max-width: 767px) {
-  .tabla-iuv-overlay,
-  .text-overlay {
-    font-size: 0.75rem; /* Letra más chica en celular */
-    padding: 10px 15px; /* Menos margen en celular */
-  }
-
-  .tabla-iuv-overlay .fila,
-  .tabla-iuv-overlay .fila-header {
-    flex-direction: column; /* Las columnas una debajo de otra si querés más espacio */
-    align-items: center;
-    text-align: center;
-  }
-
-  .columna {
-    width: 100%;
-    margin-bottom: 5px;
-  }
-}
-.fila,
-.fila-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 13px;
-}
-
-.fila-header {
-  margin-bottom: 0.3px;
-  padding-bottom: 1px;
-  color: rgb(172, 53, 15);
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
+/* columnas izquierda y derecha */
 .columna {
-  width: 50%;
-  text-align: center;
+  padding: 4px;
 }
 
 .izquierda {
@@ -461,6 +413,219 @@ canvas {
   text-align: center;
 }
 
+/* encabezado */
+.encabezado-con-margen {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: rgb(172, 53, 15);
+}
 
-/* PARA HOME */
-/* 1 */
+
+@media (max-width: 768px) {
+  .tabla-iuv-overlay {
+  padding: 10px 40px 40px 40px; /* top, right, bottom, left */
+  font-size: 0.95rem;
+}
+}
+
+/* PARA indice uv */
+.contenedor-uv {
+  position: relative;
+  width: 100%;
+}
+
+.imagen-uv {
+  width: 100%;
+  display: block;
+}
+
+.texto-superpuesto-uv {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px 30px 30px 25px; /* top, right, bottom, left */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
+
+.fila-numeros {
+  display: grid;
+  grid-template-columns: 10% 10% 6.66% 6.66% 6.66% 10% 10% 6.66% 6.66% 6.66% 20%;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.fila-categorias {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+  text-align: center;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+
+.texto-superpuesto-uv {
+  padding: 8px 20px 20px 15px; /* top, right, bottom, left */
+}
+
+.fila-numeros {
+  font-size: 12px;
+  margin-bottom: 3px;
+  font-weight: 500;
+}
+
+.fila-categorias {
+  font-size: 7px;
+}
+  }
+
+
+/* PARA sobre nosotros */
+.sobre-nosotros-container {
+  position: relative;
+  max-width: 1140px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+
+.imagen-fondo-sobrenosotros {
+  width: 100%;
+  max-width: 1140px; /* ancho típico de contenedor Bootstrap */
+  margin: 0 auto;     /* centrado horizontal */
+  display: block;
+  height: auto;
+}
+
+.contenido-superpuesto {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 38px;
+  font-size: 1.5rem;
+  color: rgb(172, 53, 15); /* color bordo oscuro */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;       /* centra horizontalmente  */
+  text-align: center;
+  font-weight: 500;  
+  margin-top: 5px;    
+}
+
+.equipo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.foto-equipo {
+  text-align: center;
+}
+
+.foto-equipo img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.texto-foto {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .contenido-superpuesto {
+    font-size: 0.7rem;
+  }
+  .equipo-container {
+  margin-top: 10px;
+}
+  .foto-equipo img {
+  width: 80px;
+}
+
+.texto-foto {
+  margin-top: 3px;
+}
+}
+
+/* PARA QUE SE VEA BIEN LA BARRA EN EL CELU */
+@media (max-width: 768px) {
+  #mainNav .container,
+  #mainNav .navbar-collapse {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+
+  #mainNav .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    overflow-x: visible !important;  /* No scroll */
+    width: 100% !important;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+
+  #mainNav .navbar-nav .nav-item {
+    margin: 0 4px;  /* Menos margen para que quepan más */
+    flex-shrink: 1; /* Permite que los items se reduzcan si hace falta */
+  }
+
+
+  #mainNav .navbar-nav .nav-link {
+    padding: 0.5rem 0.5rem;  /* Menos padding */
+    font-size: 0.85rem;         /* Fuente un poco más chica */
+    white-space: nowrap;
+    display: inline-block;
+  }
+}
+
+
+/* para los logos del pie de pagina */
+.logo-footer {
+  height: 60px;         /* tamaño pequeño */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo-footer:hover {
+  transform: scale(1.1);  /* efecto al pasar el mouse */
+}
+
+.logos-footer {
+  background-color: white;
+  padding: 10px 20px;
+  border-radius: 12px;
+  display: inline-flex;
+  max-width: 450px; /* tamano del cuadrado */
+  justify-content: center;
+  margin: 0 auto; /* centra horizontalmente */
+  gap: 10px; /* espacio entre logos */
+}
+
+@media (max-width: 768px) {
+  .logo-footer {
+    height: 40px; /* tamano de las fotos */
+  }
+  .logos-footer {
+  max-width: 300px; /* 👈 ajustá este valor a lo que necesites */
+}
+}
