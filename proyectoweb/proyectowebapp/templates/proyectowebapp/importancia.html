@@ -12,9 +12,9 @@
   <img class="intro-img img-fluid rounded espacio-grande"
        src="{% static 'proyectowebapp/img/02_Importancia_1.png' %}" alt="Imagen 1">
 
-  <div class="contenido-superpuesto">
+  <div class="contenido-superpuesto1">
     <!-- Columna 1: Tabla IUV -->
-    <div class="columna columna-iuv">
+    <div class="columna1 columna-iuv">
       <div class="iuv-fila"><div class="iuv-celda color-extrema">EXTREMADAMENTE ALTA</div><div class="iuv-celda color-extrema">11+</div></div>
       <div class="iuv-fila"><div class="iuv-celda color-muy-alta">MUY ALTA</div><div class="iuv-celda color-muy-alta">8-10</div></div>
       <div class="iuv-fila"><div class="iuv-celda color-alta">ALTA</div><div class="iuv-celda color-alta">6-7</div></div>
@@ -25,14 +25,14 @@
     </div>
 
     <!-- Columna 2: Texto -->
-    <div class="columna columna-texto">
+    <div class="columna1 columna-texto">
       <div class="fila-texto">¡NECESITA PROTECCIÓN EXTREMA!</div>
       <div class="fila-texto">¡NECESITA PROTECCIÓN!</div>
       <div class="fila-texto">¡NECESITA PROTECCIÓN MÍNIMA!</div>
     </div>
 
     <!-- Columna 3: Consejos -->
-    <div class="columna columna-consejos">
+    <div class="columna1 columna-consejos">
     <div class="fila-texto">
   <div>. Evitá salir durante horas centrales del día.</div>
   <div>. Buscá la sombra.</div>
@@ -66,7 +66,7 @@
       </div>
     </div>
 
-    
+
     
       <div class="img-container">
   <img class="intro-img img-fluid rounded espacio-grande" 
@@ -121,17 +121,101 @@
 
     
     <div class="img-container">  
-      <img class="intro-img img-fluid rounded espacio-pequeño" 
+      <img class="intro-img img-fluid rounded espacio-pequen" 
            src="{% static 'proyectowebapp/img/02_Importancia_4.png' %}" alt="Imagen 4">
             <div class="text-overlay text-overlay-Importancia2y4">
           ¡DESCUBRÍ TU FOTOTIPO!
       </div>
     </div>
 
-      <img class="intro-img img-fluid rounded" 
-           src="{% static 'proyectowebapp/img/02_Importancia_5.png' %}" alt="Imagen 5">
 
-    
+<div class="img-container">
+  <img class="intro-img img-fluid rounded espacio-pequeño"
+  src="{% static 'proyectowebapp/img/02_Importancia_5.png' %}" alt="Imagen 5">
+
+  <div class="overlay5">
+
+    <!-- Texto superior -->
+    <div class="texto-superior5">
+      <strong>Fototipo</strong> es la capacidad de la piel para asimilar la radiación solar.
+      Su clasificación oscila entre I y VI según la escala Fitzpatrick, una clasificación numérica
+      para categorizar la piel según su respuesta a la exposición solar.
+    </div>
+
+        <!-- Encabezados -->
+       <!-- Encabezados -->
+    <div class="fila5 encabezado5">
+      <div class="columna5" style="width: 8%;"></div> <!-- espacio para círculo -->
+      <div class="columna5" style="width: 12%;">TIPOS</div>
+      <div class="columna5" style="width: 30%;">FOTOTIPO CUTÁNEO</div>
+      <div class="columna5" style="width: 25%;">SE <u>QUEMA</u> TRAS LA EXPOSICIÓN AL SOL</div>
+      <div class="columna5" style="width: 25%;">SE <u>BRONCEA</u> TRAS LA EXPOSICIÓN AL SOL</div>
+    </div>
+
+    <!-- Filas -->
+    <div class="fila5">
+      <div class="columna5 circulo-col" style="width: 8%;">
+        <span class="circulo" style="background-color: rgb(240, 218, 98);"></span>
+      </div>
+      <div class="columna5 fila5-tipo" style="width: 12%;">TIPO I</div>
+      <div class="columna5" style="width: 30%;">Deficiente en melanina</div>
+      <div class="columna5" style="width: 25%;">Siempre</div>
+      <div class="columna5" style="width: 25%;">Raramente</div>
+    </div>
+
+    <div class="fila5">
+      <div class="columna5 circulo-col" style="width: 8%;">
+        <span class="circulo" style="background-color: rgba(232, 185, 99, 1);"></span>
+      </div>
+      <div class="columna5 fila5-tipo" style="width: 12%;">TIPO II</div>
+      <div class="columna5" style="width: 30%;">Deficiente en melanina</div>
+      <div class="columna5" style="width: 25%;">Habitualmente</div>
+      <div class="columna5" style="width: 25%;">Algunas veces</div>
+    </div>
+
+    <div class="fila5">
+      <div class="columna5 circulo-col" style="width: 8%;">
+        <span class="circulo" style="background-color: rgba(177, 102, 56, 1);"></span>
+      </div>
+      <div class="columna5 fila5-tipo" style="width: 12%;">TIPO III</div>
+      <div class="columna5" style="width: 30%;">Con melanina suficiente</div>
+      <div class="columna5" style="width: 25%;">Algunas veces</div>
+      <div class="columna5" style="width: 25%;">Habitualmente</div>
+    </div>
+
+    <div class="fila5">
+      <div class="columna5 circulo-col" style="width: 8%;">
+        <span class="circulo" style="background-color: rgba(141, 80, 41, 1);"></span>
+      </div>
+      <div class="columna5 fila5-tipo" style="width: 12%;">TIPO IV</div>
+      <div class="columna5" style="width: 30%;">Con melanina suficiente</div>
+      <div class="columna5" style="width: 25%;">Raramente</div>
+      <div class="columna5" style="width: 25%;">Siempre</div>
+    </div>
+
+    <div class="fila5">
+      <div class="columna5 circulo-col" style="width: 8%;">
+        <span class="circulo" style="background-color: rgba(121, 49, 5, 1);"></span>
+      </div>
+      <div class="columna5 fila5-tipo" style="width: 12%;">TIPO V</div>
+      <div class="columna5" style="width: 30%;">Con protección melánica</div>
+      <div class="columna5" style="width: 25%;">Piel morena natural</div>
+      <div class="columna5" style="width: 25%;">Piel morena natural</div>
+    </div>
+
+    <div class="fila5">
+      <div class="columna5 circulo-col" style="width: 8%;">
+        <span class="circulo" style="background-color: rgba(52, 25, 28, 1);"></span>
+      </div>
+      <div class="columna5 fila5-tipo" style="width: 12%;">TIPO VI</div>
+      <div class="columna5" style="width: 30%;">Con protección melánica</div>
+      <div class="columna5" style="width: 25%;">Piel negra natural</div>
+      <div class="columna5" style="width: 25%;">Piel negra natural</div>
+    </div>
+
+  </div>
+</div>
+
 
 
           <div class="img-container">  
