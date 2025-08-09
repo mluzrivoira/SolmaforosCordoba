@@ -28,7 +28,9 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'clave_insegura_para_desarollo')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['192.168.0.187']
+
+ALLOWED_HOSTS = []
+
 
 
 
