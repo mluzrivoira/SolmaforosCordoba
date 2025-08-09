@@ -37,11 +37,11 @@ def indiceuv(request):
 
     # Colores según OMS
     colores_uv = {
-        "Verde": "#00cc00",
-        "Amarillo": "#ffcc00",
-        "Naranja": "#ff9900",
-        "Rojo": "#ff3300",
-        "Violeta": "#9900cc"
+        "Verde": "rgb(80, 183, 45)",
+        "Amarillo": "rgb(221, 210, 0)",
+        "Naranja": "rgb(239, 160, 0)",
+        "Rojo": "rgb(222, 0, 35)",
+        "Violeta": "rgb(197, 119, 169)"
     }
 
 

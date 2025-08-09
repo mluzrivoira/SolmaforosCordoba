@@ -6,36 +6,152 @@
 <section class="page-section clearfix">
   <div class="container">
 
-    <div class="image-container">
-      <img class="intro-img img-fluid rounded espacio-grande" 
-           src="{% static 'proyectowebapp/img/02_Importancia_1.png' %}" alt="Imagen 1">
-    
+
+
+<div class="image-container">
+  <img class="intro-img img-fluid rounded espacio-grande"
+       src="{% static 'proyectowebapp/img/02_Importancia_1.png' %}" alt="Imagen 1">
+
+  <div class="contenido-superpuesto">
+    <!-- Columna 1: Tabla IUV -->
+    <div class="columna columna-iuv">
+      <div class="iuv-fila"><div class="iuv-celda color-extrema">EXTREMADAMENTE ALTA</div><div class="iuv-celda color-extrema">11+</div></div>
+      <div class="iuv-fila"><div class="iuv-celda color-muy-alta">MUY ALTA</div><div class="iuv-celda color-muy-alta">8-10</div></div>
+      <div class="iuv-fila"><div class="iuv-celda color-alta">ALTA</div><div class="iuv-celda color-alta">6-7</div></div>
+      <div class="iuv-fila"><div class="iuv-celda color-moderada">MODERADA</div><div class="iuv-celda color-moderada">3-5</div></div>
+      <div class="iuv-fila"><div class="iuv-celda color-baja">BAJA</div><div class="iuv-celda color-baja">1-2</div></div>
+   
+      
+    </div>
+
+    <!-- Columna 2: Texto -->
+    <div class="columna columna-texto">
+      <div class="fila-texto">¡NECESITA PROTECCIÓN EXTREMA!</div>
+      <div class="fila-texto">¡NECESITA PROTECCIÓN!</div>
+      <div class="fila-texto">¡NECESITA PROTECCIÓN MÍNIMA!</div>
+    </div>
+
+    <!-- Columna 3: Consejos -->
+    <div class="columna columna-consejos">
+    <div class="fila-texto">
+  <div>. Evitá salir durante horas centrales del día.</div>
+  <div>. Buscá la sombra.</div>
+  <div>. Mantené los brazos cubiertos.</div>
+  <div>. Usá crema de protección solar.</div>
+  <div>. Usá sombrero o gorra.</div>
+</div>
+  
+  <div class="fila-texto">
+  <div>. Mantenete a la sombra durante horas centrales del día.</div>
+  <div>. Cubrí los brazos.</div>
+  <div>. Usá crema de protección solar.</div>
+  <div>. Usá sombrero o gorra.</div>
+</div>
+
+<div class="fila-texto">
+  <div>. Usá crema de protección solar.</div>
+  <div>. Usá sombrero o gorra.</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="img-container">
       <img class="intro-img img-fluid rounded espacio-pequeño" 
            src="{% static 'proyectowebapp/img/02_Importancia_2.png' %}" alt="Imagen 2">
+             <div class="text-overlay text-overlay-Importancia2y4">
+          ¿QUÉ MITOS EXISTEN SOBRE LA EXPOSICIÓN A LA RADIACIÓN UV?
+      </div>
+    </div>
+
     
-      <img class="intro-img img-fluid rounded espacio-grande" 
-           src="{% static 'proyectowebapp/img/02_Importancia_3.png' %}" alt="Imagen 3">
     
+      <div class="img-container">
+  <img class="intro-img img-fluid rounded espacio-grande" 
+       src="{% static 'proyectowebapp/img/02_Importancia_3.png' %}" alt="Imagen 3">
+
+  <div class="tabla-superpuesta">
+    <table>
+      <thead>
+        <tr>
+          <th class="falso">¡FALSO!</th>
+          <th class="verdadero">¡VERDADERO!</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>El bronceado es saludable.</td>
+          <td>Es una forma de defensa del organismo contra los daños de la radiación.</td>
+        </tr>
+        <tr>
+          <td>El bronceado te protege del sol.</td>
+          <td>Un bronceado intenso en personas de piel clara sólo ofrece una escasa protección.</td>
+        </tr>
+        <tr>
+          <td>En días nublados no te quemas.</td>
+          <td>Hasta el 80% de la radiación UV solar puede atravesar una nubosidad densa.</td>
+        </tr>
+        <tr>
+          <td>En el agua no te quemas.</td>
+          <td>El agua proporciona una protección mínima contra la radiación UV.</td>
+        </tr>
+        <tr>
+          <td>En invierno, la radiación no es peligrosa.</td>
+          <td>La radiación UV es menor pero aún así debes cuidarte del sol.</td>
+        </tr>
+        <tr>
+          <td>Las cremas protectoras te permiten tomar sol durante más tiempo.</td>
+          <td>Las cremas de protección solar deben usarse para aumentar la protección cuando la exposición es inevitable.</td>
+        </tr>
+        <tr>
+          <td>Si realizas descansos mientras tomas sol no te quemas.</td>
+          <td>La exposición a la radiación UV se acumula a lo largo del día.</td>
+        </tr>
+        <tr>
+          <td>Si uno no siente calor al sol no te quemas.</td>
+          <td>Las quemaduras solares se deben a los rayos UV, no a la sensación térmica.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+    
+    <div class="img-container">  
       <img class="intro-img img-fluid rounded espacio-pequeño" 
            src="{% static 'proyectowebapp/img/02_Importancia_4.png' %}" alt="Imagen 4">
-    
+            <div class="text-overlay text-overlay-Importancia2y4">
+          ¡DESCUBRÍ TU FOTOTIPO!
+      </div>
+    </div>
+
       <img class="intro-img img-fluid rounded" 
            src="{% static 'proyectowebapp/img/02_Importancia_5.png' %}" alt="Imagen 5">
 
-      <img class="intro-img img-fluid rounded espacio-grande" 
-           src="{% static 'proyectowebapp/img/02_Importancia_3.png' %}" alt="Imagen 6">
-    </div>
     
 
-    <div class="fuente-oms">
-      <p>
-        Toda esta información fue extraída de:
-        <a href="https://apps.who.int/iris/bitstream/handle/10665/42633/9243590073.pdf" target="_blank">
-          "Índice UV Solar Mundial: guía práctica"
-        </a>
-        publicada por la Organización Mundial de la Salud (OMS).
-      </p>
+
+          <div class="img-container">  
+  <img class="intro-img img-fluid rounded espacio-pequeño" 
+       src="{% static 'proyectowebapp/img/02_Importancia_6.png' %}" 
+       alt="Imagen 6">
+
+  <div class="overlay-text-oms">
+    <p>
+      Toda esta información fue extraída de:
+      <a href="https://apps.who.int/iris/bitstream/handle/10665/42633/9243590073.pdf" target="_blank">
+        "Índice UV Solar Mundial: guía práctica"
+      </a>
+      publicada por la Organización Mundial de la Salud (OMS).
+    </p>
+  </div>
+</div> 
     </div>
+    
+  
   </div>
 </section>
 
