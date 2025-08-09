@@ -439,9 +439,21 @@ canvas {
 @media (max-width: 768px) {
   .tabla-iuv-overlay {
   padding: 10px 40px 40px 40px; /* top, right, bottom, left */
-  font-size: 0.95rem;
+  font-size: 1rem;
+}
+.tabla-iuv-overlay .columna-tabla-iuv {
+  padding: 8px;
+  text-align: center;
+}
+.tabla-iuv-overlay .encabezado-con-margen {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: rgb(172, 53, 15);
 }
 }
+
+
+
 
 /* PARA indice uv */
 .contenedor-uv {
@@ -482,6 +494,8 @@ canvas {
   text-align: center;
   font-size: 12px;
 }
+
+
 
 @media (max-width: 768px) {
 
@@ -593,16 +607,20 @@ canvas {
 }
 
 .columna:nth-child(3) {
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 10px;
   
 }
+.iuv-celda {
+  padding: 4px;
+
+}
 .iuv-fila {
-  margin-bottom: 1px;
+  margin-bottom: 5%;
 }
 
 .fila-texto {
-  padding: 5px;
-  margin-bottom: 10px; 
+  padding: 1px;
+  margin-bottom: 8px; 
   font-size: 7px;
 }
 }
