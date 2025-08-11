@@ -515,9 +515,6 @@ canvas {
 
 
 /* PARA IMPORTANCIA IMAGEN 1 */
-.image-container {
-  position: relative;
-}
 
 .contenido-superpuesto1 {
   position: absolute;
@@ -591,33 +588,33 @@ canvas {
     top: 0%;
     left: 0;
     width: 100%;
-    column-gap: 10px;
+    column-gap: 5px;
       grid-template-columns: 40% 23% 37%;
   }
 .columna1:nth-child(1) {
-  font-size: 6px;
-  padding: 65px 20px 0px 7vw; /* top, right, bottom, left */
+  font-size: 5.5px;
+  padding: 55px 10px 0px 12vw; /* top, right, bottom, left */
   
 }
 
 .columna1:nth-child(2) {
-  padding: 65px 0px 0px 0px; /* top, right, bottom, left */
+  padding: 50px 8px 0px 8px; /* top, right, bottom, left */
 }
 
 .columna1:nth-child(3) {
-  padding: 20px 0px 0px 10px;
+  padding: 10px 25px 0px 10px;
   
 }
 .iuv-celda {
-  padding: 6px;
+  padding: 4px;
 
 }
 .iuv-fila {
-  margin-bottom: 1px;
+  margin-bottom: 2px;
 }
 
 .fila-texto {
-  padding: 5px;
+  padding: 3px;
   margin-bottom: 10px; 
   font-size: 7px;
 }
