@@ -52,8 +52,8 @@ def indiceuv(request):
         popup_text = (
             f"ID {medicion.ubicacion_id}<br>"
             f"<strong>{medicion.ubicacion}</strong><br>"
-            f"<strong>Temperatura:</strong> {medicion.temperatura} °C<br>"
             f"<strong>UV:</strong> {medicion.uv}<br>"
+            f"<strong>Temperatura:</strong> {medicion.temperatura} °C<br>"
             f"<strong>Fecha y hora:</strong>{medicion.fecha_hora.astimezone(arg_tz).strftime('%Y-%m-%d %H:%M:%S')}"
         )
 
