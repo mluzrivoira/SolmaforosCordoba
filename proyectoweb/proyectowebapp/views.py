@@ -11,8 +11,6 @@ import pandas as pd
 import pytz
 from datetime import datetime, timedelta
 from datetime import date, time
-import locale
-locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8') 
 arg_tz = pytz.timezone("America/Argentina/Buenos_Aires")
 
 def home(request): 
