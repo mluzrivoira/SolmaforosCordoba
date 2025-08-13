@@ -11,6 +11,8 @@ import pandas as pd
 import pytz
 from datetime import datetime, timedelta
 from datetime import date, time
+import locale
+locale.setlocale(locale.LC_TIME, 'es_ES.UTF-8') 
 arg_tz = pytz.timezone("America/Argentina/Buenos_Aires")
 
 def home(request): 
@@ -54,7 +56,7 @@ def indiceuv(request):
             f"<strong>{medicion.ubicacion}</strong><br>"
             f"<strong>UV:</strong> {medicion.uv}<br>"
             f"<strong>Temperatura:</strong> {medicion.temperatura} °C<br>"
-            f"<strong>Fecha y hora:</strong>{medicion.fecha_hora.astimezone(arg_tz).strftime('%Y-%m-%d %H:%M:%S')}"
+            f"<strong>Última medición:</strong>{medicion.fecha_hora.astimezone(arg_tz).strftime('%d %b %Y %H:%M:%S')}"
         )
 
         # Obtener color real desde el diccionario
