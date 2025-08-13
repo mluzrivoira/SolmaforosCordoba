@@ -54,7 +54,7 @@ def indiceuv(request):
             f"<strong>{medicion.ubicacion}</strong><br>"
             f"<strong>UV:</strong> {medicion.uv}<br>"
             f"<strong>Temperatura:</strong> {medicion.temperatura} °C<br>"
-            f"<strong>Última medición:</strong>{medicion.fecha_hora.astimezone(arg_tz).strftime('%Y-%m-%d %H:%M:%S')}"
+            f"<strong>Última medición:</strong>{medicion.fecha_hora.astimezone(arg_tz).strftime('%d-%m-%Y %H:%M')}"
         )
 
         # Obtener color real desde el diccionario
