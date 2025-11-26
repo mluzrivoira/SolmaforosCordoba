@@ -541,7 +541,7 @@ canvas {
 
 .columna1:nth-child(1) {
   font-size: 11px;
-  padding: 120px 0px 0px 10.5vw; /* top, right, bottom, left */
+  padding: 120px 0px 0px 13vw; /* top, right, bottom, left */
 }
 
 .columna1:nth-child(2) {

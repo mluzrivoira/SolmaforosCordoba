@@ -128,7 +128,7 @@ def graficos(request):
                     fecha_hora__range=(fecha_desde_utc, fecha_hasta_utc)
                 ).order_by("fecha_hora")
         except ValueError:
-            errores.append("Formato de fecha inválido. Usar YYYY-MM-DD.")
+            errores.append("Formato de fecha inválido.")
     else:
         # buscamos la última fecha con datos
         ultima_medicion = Medicion.objects.order_by("-fecha_hora").first()
